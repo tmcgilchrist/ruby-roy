@@ -1,25 +1,19 @@
 Gem::Specification.new do |s|
-  s.name      = 'roy-lang'
-  s.version   = '0.1'
-  s.date      = '2012-04-26'
-
+  s.name        = 'roy-lang'
+  s.version     = '0.0.1'
   s.homepage    = "http://github.com/tmcgilchrist/ruby-roy"
   s.summary     = "Ruby Roy Compiler"
-  s.description = <<-EOS
-    Ruby Roy is a bridge to the Roy JS compiler.
-  EOS
 
-  s.files = [
-             'lib/roy-lang.rb',
-             'lib/roy_lang.rb',
-             'lib/bundled-roy.js',
-             'lib/source.rb',
-             'LICENSE',
-             'README.md'
-  ]
-
-  s.add_dependency 'execjs'
-
-  s.authors = ['Tim McGilchrist']
+  s.author      = 'Tim McGilchrist'
   s.email   = 'timmcgil@gmail.com'
+
+  s.description = "Ruby Roy is a bridge to the Roy JS compiler."
+
+  s.add_runtime_dependency 'execjs', '~> 1.3'
+  s.add_runtime_dependency 'rails', '~> 3.1'
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
 end

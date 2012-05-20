@@ -55,7 +55,7 @@ module Roy
       end
 
       # Not sure what to do here?
-      Source.context.call("roy.compile", script, options)
+      Source.context.call("roy.compile", script, options)["output"]
     end
   end
 end

@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   s.name        = 'roy-lang'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.homepage    = "http://github.com/tmcgilchrist/ruby-roy"
   s.summary     = "Ruby Roy Compiler"
 
   s.author      = 'Tim McGilchrist'
-  s.email   = 'timmcgil@gmail.com'
+  s.email       = 'timmcgil@gmail.com'
 
   s.description = "Ruby Roy is a bridge to the Roy JS compiler."
 

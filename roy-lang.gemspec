@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
   s.description = "Ruby Roy is a bridge to the Roy JS compiler."
 
   s.add_runtime_dependency 'execjs', '~> 1.3'
-  s.add_runtime_dependency 'rails', '~> 3.1'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

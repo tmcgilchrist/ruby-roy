@@ -17,4 +17,24 @@ class TestRoy < Test::Unit::TestCase
       Roy.compile(nil)
     end
   end
+
+  def test_no_wrap
+    assert_equal "var x = 10;\n", Roy.compile("let x = 10", no_wrap: true)
+  end
+
+  def test_bare
+    assert_equal "var x = 10;\n", Roy.compile("let x = 10", bare: true)
+  end
+
+  def test_strict
+    assert_equal "(function() {\n\"use strict\";\nvar x = 10;\n})();\n", Roy.compile("let x = 10", strict: true)
+  end
+
+  def test_no_wrap_strict
+    assert_equal "\"use strict\";\nvar x = 10;\n", Roy.compile("let x = 10", strict: true, no_wrap: true)
+  end
+
+  def test_strict_opts_false
+    assert_equal "(function() {\nvar x = 10;\n})();\n", Roy.compile("let x = 10", strict: false, no_wrap: false)
+  end
 end

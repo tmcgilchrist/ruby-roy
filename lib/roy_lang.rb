@@ -43,19 +43,20 @@ module Roy
       Source.version
     end
 
-    # Compile a script (String or IO) to JavaScript.
+    # Public: Compile a Roy script to JavaScript.
+    #
+    # script  - The roy script to compile, must respond to read.
+    # options - The options for the roy compiler:
+    #           :nodejs - When true assumes nodejs environment, which
+    #                     prevents IIFE wrapping and uses exports.
+    #           :strict - When true inserts "use strict";
+    #
+    # Returns a String of JavaScript.
     def compile(script, options = {})
       script = script.read if script.respond_to?(:read)
 
-      if options.key?(:bare)
-      elsif options.key?(:no_wrap)
-        options[:bare] = options[:no_wrap]
-      else
-        options[:bare] = false
-      end
-
-      # Not sure what to do here?
-      Source.context.call("roy.compile", script, options)["output"]
+      # var compile = function(source, env, aliases, opts) { ... }
+      Source.context.call("roy.compile", script, {}, {}, options)["output"]
     end
   end
 end

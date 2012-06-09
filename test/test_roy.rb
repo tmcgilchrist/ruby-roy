@@ -4,12 +4,14 @@ require 'stringio'
 
 class TestRoy < Test::Unit::TestCase
   def test_compile
-    assert_equal "(function() {\nconsole.log('Hello world');\n})();\n", Roy.compile("console.log 'Hello world'")
+    expected = "(function() {\nvar add = function(x, y) {\n    return x + y;\n};\n})();\n"
+    assert_equal expected, Roy.compile("let add (x:Number) (y:Number) = x + y")
   end
 
   def test_compile_with_io
-    io = StringIO.new("console.log 'Hello, World!'\n")
-    assert_equal "(function() {\nconsole.log('Hello, World!');\n})();\n", Roy.compile(io)
+    expected = "(function() {\nvar add = function(x, y) {\n    return x + y;\n};\n})();\n"
+    io = StringIO.new("let add (x:Number) (y:Number) = x + y")
+    assert_equal expected, Roy.compile(io)
   end
 
   def test_compilation_error

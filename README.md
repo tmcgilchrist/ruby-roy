@@ -1,7 +1,7 @@
 Ruby Roy [![Build Status](https://travis-ci.org/tmcgilchrist/ruby-roy.png?branch=master)](https://travis-ci.org/tmcgilchrist/ruby-roy)
 ==================
 
-Ruby Roy is a bridge to the offical Roy compiler.
+Ruby Roy is a bridge to the offical [Roy](https://github.com/pufuwozu/roy) compiler.
 
     Roy.compile File.read("script.roy")
 
